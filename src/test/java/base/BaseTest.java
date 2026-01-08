@@ -30,10 +30,9 @@ public class BaseTest {
         basePage.setDriver(driver);
     }
 
-
     @AfterClass
     public void tearDown() {
-        driver.quit();
+//        driver.quit(); // Closed for testing purposes
     }
 
 

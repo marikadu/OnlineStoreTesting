@@ -9,7 +9,7 @@ public class HomePage extends BasePage {
     private By foundCouponPlacement = By.className("coupon-input");
     private By closeButton = By.className("close-button");
 
-//    String coupon;
+    private By productsPageButton = By.xpath("//a[text()='Products']");
 
     public void fillEmailField(String email){
         scrollToElementJS(subscribeButton);
@@ -28,5 +28,11 @@ public class HomePage extends BasePage {
 
     public void clickCloseButton(){
         click(closeButton);
+    }
+
+    public ProductsPage goToProductsPage(){
+        scrollToElementJS(productsPageButton);
+        click(productsPageButton);
+        return new ProductsPage();
     }
 }
