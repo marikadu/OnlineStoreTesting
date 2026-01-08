@@ -1,33 +1,14 @@
 package com.ginandjuice;
 
-import com.base.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
-public class HomePage extends BasePage {
-    private By accountButton = By.className("account-icon");
-
-    private By loginButton = By.xpath("//a[text()='Log in']");
-
+public class AccountPage extends HomePage {
     private By emailField = By.name("email");
     public By subscribeButton = By.xpath("//div[@id='subscribe']//button[@type='submit']");
     private By foundCouponPlacement = By.className("coupon-input");
     private By closeButton = By.className("close-button");
 
     private By productsPageButton = By.xpath("//a[text()='Products']");
-
-    private By shoppingCartButton = By.className("cart-icon");
-    private By loginPageButton = By.xpath("//div[@class='cart-order-section']//button[text()='Place order']");
-
-
-    public LoginPage logIntoAccount(){
-        Actions act = new Actions(driver);
-        act.moveToElement(driver.findElement(accountButton)).perform();
-        find(loginButton);
-        click(loginButton);
-        return new LoginPage();
-    }
-
 
 
     public void fillEmailField(String email){
@@ -53,11 +34,5 @@ public class HomePage extends BasePage {
         scrollToElementJS(productsPageButton);
         click(productsPageButton);
         return new ProductsPage();
-    }
-
-    public ShoppingCardPage goToShoppingCartPage(){
-        scrollToElementJS(shoppingCartButton);
-        click(shoppingCartButton);
-        return new ShoppingCardPage();
     }
 }

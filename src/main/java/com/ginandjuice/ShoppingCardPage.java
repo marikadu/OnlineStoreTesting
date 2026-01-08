@@ -7,6 +7,11 @@ public class ShoppingCardPage extends ProductsPage {
     private By applyCouponButton = By.xpath("//form[@id='coupon-form']//button[text()='Apply']");
     private By placeOrderButton = By.xpath("//div[@class='cart-order-section']//button[text()='Place order']");
 
+    private By pricePlacement = By.xpath("//div[@class='cart-order-section']//strong");
+    String beforeDiscountPrice;
+    int priceFloat;
+
+
     public void enterCoupon(String coupon) {
         driver.findElement(couponField).sendKeys(coupon);
     }
@@ -15,9 +20,17 @@ public class ShoppingCardPage extends ProductsPage {
         click(applyCouponButton);
     }
 
+
     public void clickPlaceOrderButton() {
         click(placeOrderButton);
     }
 
-    // Additional: calculate the difference and check whether it is actually 20% discount
+    public float getPriceAsFloat() {
+        String foundPrice = getText(pricePlacement);
+        String cleanPrice = foundPrice.replaceAll("[$,]", "");
+        float newPrice = Float.parseFloat(cleanPrice);
+        System.out.println(newPrice);
+        return newPrice;
+    }
 }
+

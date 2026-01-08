@@ -11,21 +11,19 @@ public class ProductsPage extends HomePage{
     int amount;
 
     private By addToCartButton = By.xpath("//form[@id='addToCartForm']//button[@class='button']");
-//    private By shoppingCartButton = By.className("cart-icon");
-
-    // 1. Find the Number of products
-    // 2. Create a loop through all the products to place all of them into the shopping card
 
     public String getProductsPageTitle(){
         return find(productsPageTitle).getText();
     }
 
+    // 1. Find the Number of products
     public void getNumberOfProducts(){
         List<WebElement> productButtons = driver.findElements(productDetailsButton);
         amount = productButtons.size();
         System.out.println("Number of products: " + amount);
     }
 
+    // 2. Create a loop through all the products to place all of them into the shopping card
     public void goToProductPageAndAddToCart(){
         var i = 1;
         while (i <= amount){
@@ -33,13 +31,7 @@ public class ProductsPage extends HomePage{
             scrollToElementJS(addToCartButton);
             click(addToCartButton);
             i++;
+            // Additionally: take screenshot of every product
         }
     }
-
-
-
-//    public void goToShoppingCartPage(){
-//        scrollToElementJS(shoppingCartButton);
-//        click(shoppingCartButton);
-//    }
 }
