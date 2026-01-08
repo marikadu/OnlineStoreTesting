@@ -11,6 +11,8 @@ public class HomePage extends BasePage {
 
     private By productsPageButton = By.xpath("//a[text()='Products']");
 
+    private By shoppingCartButton = By.className("cart-icon");
+
     public void fillEmailField(String email){
         scrollToElementJS(subscribeButton);
         find(emailField).sendKeys(email);
@@ -34,5 +36,11 @@ public class HomePage extends BasePage {
         scrollToElementJS(productsPageButton);
         click(productsPageButton);
         return new ProductsPage();
+    }
+
+    public ShoppingCardPage goToShoppingCartPage(){
+        scrollToElementJS(shoppingCartButton);
+        click(shoppingCartButton);
+        return new ShoppingCardPage();
     }
 }

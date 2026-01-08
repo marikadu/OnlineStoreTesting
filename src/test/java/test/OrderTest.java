@@ -1,6 +1,7 @@
 package test;
 
 import base.BaseTest;
+import com.ginandjuice.ProductsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -34,5 +35,9 @@ public class OrderTest extends BaseTest {
         productsPage.goToProductPageAndAddToCart();
 
         // 3. Go to cart page
+        var shoppingCartPage = homePage.goToShoppingCartPage();
+        shoppingCartPage.enterCoupon(coupon);
+        shoppingCartPage.clickApplyCouponButton();
+        shoppingCartPage.clickPlaceOrderButton();
     }
 }

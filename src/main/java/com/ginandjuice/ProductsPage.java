@@ -11,6 +11,7 @@ public class ProductsPage extends HomePage{
     int amount;
 
     private By addToCartButton = By.xpath("//form[@id='addToCartForm']//button[@class='button']");
+//    private By shoppingCartButton = By.className("cart-icon");
 
     // 1. Find the Number of products
     // 2. Create a loop through all the products to place all of them into the shopping card
@@ -33,6 +34,12 @@ public class ProductsPage extends HomePage{
             click(addToCartButton);
             i++;
         }
-
     }
+
+
+
+//    public void goToShoppingCartPage(){
+//        scrollToElementJS(shoppingCartButton);
+//        click(shoppingCartButton);
+//    }
 }
